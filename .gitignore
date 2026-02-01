@@ -1,12 +1,13 @@
-# Ignora todo por defecto
-/*
-
-# ¡Pero no ignores estos!
-!/.gitignore
-!/.gitattributes
-!/README.md
-!/LICENSE
-!/addons/
-!/addons/<nombre_addon>/
-!/addons/<nombre_addon>/**
-!/icon.png
+# Ignora archivos temporales y de sistema
+*.import
+*.tmp
+*.log
+*.DS_Store
+*.godot/
+*.mono/
+.export/
+.import/
+.cache/
+bin/
+.idea/
+.vscode/

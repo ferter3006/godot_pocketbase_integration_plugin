@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfwiglnlkynl7"]
+
+[ext_resource type="Texture2D" uid="uid://du3hdmv364aaj" path="res://assets/todo_app(1).png" id="1_cuq0p"]
+
+[node name="Header" type="Node2D"]
+
+[node name="TodoApp(1)" type="Sprite2D" parent="."]
+position = Vector2(96.00001, 64)
+scale = Vector2(0.123046875, 0.123046875)
+texture = ExtResource("1_cuq0p")

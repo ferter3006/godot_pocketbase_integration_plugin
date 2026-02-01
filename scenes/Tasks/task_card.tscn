@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://djxkvgkfu4k6j"]
+
+[ext_resource type="Theme" uid="uid://bvtosmd1xugrx" path="res://themes/main_theme.tres" id="1_3r6bf"]
+[ext_resource type="Script" uid="uid://ca8c41d2557iv" path="res://scenes/Tasks/task_card.gd" id="1_xyeeu"]
+[ext_resource type="Theme" uid="uid://7ls36p5a1qe1" path="res://themes/x_button.tres" id="2_xyeeu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jv7pe"]
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyeeu"]
+content_margin_left = 15.0
+content_margin_top = 0.0
+content_margin_right = 15.0
+content_margin_bottom = 0.0
+bg_color = Color(0.6923, 0.7, 0.23799998, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TaskCard" type="Control"]
+custom_minimum_size = Vector2(256, 208)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 208.0
+script = ExtResource("1_xyeeu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 256.0
+offset_bottom = 168.0
+color = Color(2.8878452e-07, 0.49298525, 0.5140581, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 24.0
+color = Color(2.5990605e-06, 0.6226422, 0.35312182, 1)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Task Title"
+horizontal_alignment = 1
+
+[node name="desc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 248.0
+offset_bottom = 88.0
+text = "Task descpription is gona be placed here"
+label_settings = SubResource("LabelSettings_jv7pe")
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 104.0
+offset_right = 120.0
+offset_bottom = 127.0
+text = "Working on It"
+
+[node name="WorkingOnIt" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 104.0
+offset_right = 172.0
+offset_bottom = 128.0
+
+[node name="completeTask" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 136.0
+offset_right = 240.0
+offset_bottom = 160.0
+focus_mode = 0
+theme = ExtResource("1_3r6bf")
+text = "Mark as completed"
+
+[node name="borrar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_right = 256.0
+offset_bottom = 24.0
+focus_mode = 0
+theme = ExtResource("2_xyeeu")
+text = "x"
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(96, 168, 96, 184, 160, 184, 160, 168)
+width = 2.0
+
+[node name="state" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 176.0
+offset_right = 192.0
+offset_bottom = 199.0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_xyeeu")
+text = "PENDING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="WorkingOnIt" to="." method="_on_working_on_it_toggled"]
+[connection signal="pressed" from="completeTask" to="." method="_on_complete_task_pressed"]
+[connection signal="pressed" from="borrar" to="." method="_on_borrar_pressed"]

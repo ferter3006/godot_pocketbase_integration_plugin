@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=3 uid="uid://cugenr4px4qwd"]
+
+[ext_resource type="Script" uid="uid://dl55mf8uhgoef" path="res://scenes/project_dashboard/project_dashboard.gd" id="1_ncvkp"]
+[ext_resource type="PackedScene" uid="uid://px2lfuhulnws" path="res://scenes/background/background.tscn" id="2_irlg0"]
+[ext_resource type="Theme" uid="uid://bvtosmd1xugrx" path="res://themes/main_theme.tres" id="3_jc2gw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2gw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 32
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.73333335, 0.5254902, 0.9882353, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_dt3cv"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt3cv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 32
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.73333335, 0.5254902, 0.9882353, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="ProjectDashboard" type="Node2D"]
+script = ExtResource("1_ncvkp")
+
+[node name="Background" parent="." instance=ExtResource("2_irlg0")]
+metadata/_edit_lock_ = true
+
+[node name="newTask" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 128.0
+theme = ExtResource("3_jc2gw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "New Task"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 128.0
+theme = ExtResource("3_jc2gw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "<"
+
+[node name="panelParaMargin2" type="Panel" parent="."]
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 864.0
+offset_bottom = 632.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc2gw")
+
+[node name="Label" type="Label" parent="panelParaMargin2"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 32.0
+text = "Active Tasks"
+label_settings = SubResource("LabelSettings_dt3cv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 72.0
+offset_top = 232.0
+offset_right = 856.0
+offset_bottom = 624.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="panelParaMargin" type="Panel" parent="."]
+offset_left = 888.0
+offset_top = 192.0
+offset_right = 1104.0
+offset_bottom = 632.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dt3cv")
+
+[node name="Label" type="Label" parent="panelParaMargin"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 32.0
+text = "Completed Tasks"
+label_settings = SubResource("LabelSettings_dt3cv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+offset_left = 896.0
+offset_top = 232.0
+offset_right = 1096.0
+offset_bottom = 624.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainerCompleted" type="GridContainer" parent="ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="newTask" to="." method="_on_new_task_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

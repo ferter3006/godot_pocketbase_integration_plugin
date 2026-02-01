@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxh4fvocu3b1h"]
+
+[ext_resource type="Script" uid="uid://oh3p31p3nf5s" path="res://scenes/login/login_scene.gd" id="1_6rnpt"]
+[ext_resource type="PackedScene" uid="uid://px2lfuhulnws" path="res://scenes/background/background.tscn" id="2_53p1f"]
+[ext_resource type="Theme" uid="uid://bvtosmd1xugrx" path="res://themes/main_theme.tres" id="3_xo0a0"]
+[ext_resource type="Texture2D" uid="uid://bbl3uk8lvircc" path="res://assets/password.jpg" id="4_nxgyy"]
+[ext_resource type="Texture2D" uid="uid://cuqhnj78s47pd" path="res://assets/google_logo.png" id="5_ftj7t"]
+[ext_resource type="Texture2D" uid="uid://du3hdmv364aaj" path="res://assets/todo_app(1).png" id="6_ftj7t"]
+[ext_resource type="Texture2D" uid="uid://12svfcy8vwpg" path="res://assets/xdelete.png" id="6_qafm1"]
+[ext_resource type="Texture2D" uid="uid://1lbl2psv8tb" path="res://assets/NouLogo-ai.png" id="7_6im4q"]
+[ext_resource type="Texture2D" uid="uid://cbw3qopge06ud" path="res://assets/18183402.jpg" id="7_urvlc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6im4q"]
+font_size = 750
+font_color = Color(1, 1, 1, 0.38039216)
+
+[node name="LoginScene" type="Node2D"]
+script = ExtResource("1_6rnpt")
+
+[node name="Background" parent="." instance=ExtResource("2_53p1f")]
+metadata/_edit_lock_ = true
+
+[node name="UserPassLogIn" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 432.0
+offset_right = 704.0
+offset_bottom = 466.0
+focus_mode = 0
+theme = ExtResource("3_xo0a0")
+text = "Log in with password"
+icon = ExtResource("4_nxgyy")
+expand_icon = true
+
+[node name="GoogleLogIn" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 480.0
+offset_right = 704.0
+offset_bottom = 512.0
+focus_mode = 0
+theme = ExtResource("3_xo0a0")
+text = "Log in with Google"
+icon = ExtResource("5_ftj7t")
+expand_icon = true
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 608.0
+offset_top = 528.0
+offset_right = 704.0
+offset_bottom = 562.0
+focus_mode = 0
+theme = ExtResource("3_xo0a0")
+text = "Exit"
+icon = ExtResource("6_qafm1")
+expand_icon = true
+
+[node name="signUp" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 528.0
+offset_right = 600.0
+offset_bottom = 562.0
+focus_mode = 0
+theme = ExtResource("3_xo0a0")
+text = "Create Acc"
+icon = ExtResource("7_urvlc")
+icon_alignment = 2
+expand_icon = true
+
+[node name="TodoApp(1)" type="Sprite2D" parent="."]
+position = Vector2(575.00006, 198)
+scale = Vector2(0.33203125, 0.33203125)
+texture = ExtResource("6_ftj7t")
+
+[node name="NouLogoAi" type="Sprite2D" parent="."]
+position = Vector2(1116, 612.00006)
+scale = Vector2(0.027999945, 0.027999945)
+texture = ExtResource("7_6im4q")
+
+[node name="Label" type="Label" parent="NouLogoAi"]
+offset_left = -4714.296
+offset_top = -428.5752
+offset_right = -1093.2959
+offset_bottom = 593.4248
+text = "By FerTer "
+label_settings = SubResource("LabelSettings_6im4q")
+
+[connection signal="pressed" from="UserPassLogIn" to="." method="_on_user_pass_log_in_pressed"]
+[connection signal="pressed" from="GoogleLogIn" to="." method="_on_google_log_in_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="signUp" to="." method="_on_sign_up_pressed"]

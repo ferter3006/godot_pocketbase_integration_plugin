@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjjc3nwyata8x"]
+
+[ext_resource type="Theme" uid="uid://bvtosmd1xugrx" path="res://themes/main_theme.tres" id="1_bhedl"]
+[ext_resource type="Script" uid="uid://yayyghfo13ng" path="res://scenes/project_elements/confirmacion_borrar.gd" id="1_e1oxf"]
+[ext_resource type="Theme" uid="uid://7ls36p5a1qe1" path="res://themes/x_button.tres" id="2_e1oxf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nioo2"]
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[node name="ConfirmacionBorrar" type="Node2D"]
+script = ExtResource("1_e1oxf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.45490196)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(448, 256)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_top = 24.0
+offset_right = 256.0
+offset_bottom = 112.0
+color = Color(2.8878452e-07, 0.49298525, 0.5140581, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+offset_right = 256.0
+offset_bottom = 24.0
+color = Color(2.5990605e-06, 0.6226422, 0.35312182, 1)
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_right = 256.0
+offset_bottom = 23.0
+text = "¿Seguro?"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Node2D"]
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 248.0
+offset_bottom = 88.0
+text = "Esta acción eliminará el proyecto permanentemente"
+label_settings = SubResource("LabelSettings_nioo2")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="aceptar" type="Button" parent="Node2D"]
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 120.0
+offset_bottom = 104.0
+focus_mode = 0
+theme = ExtResource("1_bhedl")
+text = "Aceptar"
+
+[node name="cancelar" type="Button" parent="Node2D"]
+offset_left = 144.0
+offset_top = 80.0
+offset_right = 240.0
+offset_bottom = 104.0
+focus_mode = 0
+theme = ExtResource("2_e1oxf")
+text = "Cancelar"
+
+[connection signal="pressed" from="Node2D/aceptar" to="." method="_on_aceptar_pressed"]
+[connection signal="pressed" from="Node2D/cancelar" to="." method="_on_cancelar_pressed"]

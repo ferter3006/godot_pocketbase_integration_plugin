@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqjh62ehoyahr"]
+
+[ext_resource type="Theme" uid="uid://bvtosmd1xugrx" path="res://themes/main_theme.tres" id="1_2v2py"]
+[ext_resource type="Script" uid="uid://bpfh7uadmk7jt" path="res://scenes/project_elements/project_card.gd" id="1_64bef"]
+[ext_resource type="Theme" uid="uid://7ls36p5a1qe1" path="res://themes/x_button.tres" id="3_64bef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sxfye"]
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[node name="ProjectCard" type="Control"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 128.0
+script = ExtResource("1_64bef")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 256.0
+offset_bottom = 128.0
+color = Color(2.8878452e-07, 0.49298525, 0.5140581, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 24.0
+color = Color(2.5990605e-06, 0.6226422, 0.35312182, 1)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Project Title"
+horizontal_alignment = 1
+
+[node name="desc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 248.0
+offset_bottom = 88.0
+text = "Project descpription is gona be placed here"
+label_settings = SubResource("LabelSettings_sxfye")
+autowrap_mode = 2
+
+[node name="entrar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 248.0
+offset_bottom = 119.0
+focus_mode = 0
+theme = ExtResource("1_2v2py")
+text = "Entrar"
+
+[node name="borrar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_right = 256.0
+offset_bottom = 24.0
+focus_mode = 0
+theme = ExtResource("3_64bef")
+text = "x"
+
+[connection signal="pressed" from="entrar" to="." method="_on_entrar_pressed"]
+[connection signal="pressed" from="borrar" to="." method="_on_borrar_pressed"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://csafcav6g8up3"]
+
+[ext_resource type="Script" uid="uid://dnr2kyua5h2tk" path="res://scenes/project_elements/create_new_project.gd" id="1_82lp4"]
+[ext_resource type="Theme" uid="uid://bvtosmd1xugrx" path="res://themes/main_theme.tres" id="1_c0l6w"]
+
+[node name="CreateNewProject" type="Node2D"]
+script = ExtResource("1_82lp4")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.41568628)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(448, 208)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_top = 56.0
+offset_right = 256.0
+offset_bottom = 216.0
+color = Color(2.8878452e-07, 0.49298525, 0.5140581, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+offset_right = 256.0
+offset_bottom = 64.0
+color = Color(2.5990605e-06, 0.6226422, 0.35312182, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="LineEdit" parent="Node2D"]
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 224.0
+offset_bottom = 55.0
+placeholder_text = "Title here"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 96.0
+offset_right = 152.0
+offset_bottom = 23.0
+text = "Title:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="description" type="TextEdit" parent="Node2D"]
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 240.0
+offset_bottom = 176.0
+placeholder_text = "Description here"
+wrap_mode = 1
+caret_blink = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Node2D"]
+offset_left = 88.0
+offset_top = 64.0
+offset_right = 177.0
+offset_bottom = 87.0
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="createBtn" type="Button" parent="Node2D"]
+offset_left = 8.0
+offset_top = 184.0
+offset_right = 112.0
+offset_bottom = 207.0
+theme = ExtResource("1_c0l6w")
+text = "Crear"
+metadata/_edit_use_anchors_ = true
+
+[node name="cancelBtn" type="Button" parent="Node2D"]
+modulate = Color(1, 0.25882354, 0.21176471, 1)
+offset_left = 144.0
+offset_top = 184.0
+offset_right = 248.0
+offset_bottom = 207.0
+theme = ExtResource("1_c0l6w")
+text = "Cancelar"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Node2D/createBtn" to="." method="_on_create_btn_pressed"]
+[connection signal="pressed" from="Node2D/cancelBtn" to="." method="_on_cancel_btn_pressed"]

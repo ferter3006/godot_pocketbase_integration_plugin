@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://d26qccqxknuw5"]
+
+[ext_resource type="Script" uid="uid://dy1wiwagkgvaa" path="res://scenes/dashboard/dashboard.gd" id="1_5ihmn"]
+[ext_resource type="PackedScene" uid="uid://px2lfuhulnws" path="res://scenes/background/background.tscn" id="1_iwa43"]
+[ext_resource type="PackedScene" uid="uid://cfwiglnlkynl7" path="res://scenes/header/header.tscn" id="2_eb81t"]
+[ext_resource type="Theme" uid="uid://bvtosmd1xugrx" path="res://themes/main_theme.tres" id="3_5ihmn"]
+
+[node name="dashboard" type="Node2D"]
+script = ExtResource("1_5ihmn")
+
+[node name="Background" parent="." instance=ExtResource("1_iwa43")]
+
+[node name="Header" parent="." instance=ExtResource("2_eb81t")]
+
+[node name="newProject" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 144.0
+offset_right = 168.0
+offset_bottom = 176.0
+focus_mode = 0
+theme = ExtResource("3_5ihmn")
+text = "(+) New Project"
+
+[node name="Logout" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 192.0
+offset_right = 168.0
+offset_bottom = 224.0
+focus_mode = 0
+theme = ExtResource("3_5ihmn")
+text = "Logout
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 1048.0
+offset_bottom = 576.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[connection signal="pressed" from="newProject" to="." method="_on_new_project_pressed"]
+[connection signal="pressed" from="Logout" to="." method="_on_logout_pressed"]
