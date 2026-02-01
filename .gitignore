@@ -9,3 +9,4 @@
 !/addons/
 !/addons/<nombre_addon>/
 !/addons/<nombre_addon>/**
+!/icon.png
