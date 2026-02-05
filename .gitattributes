@@ -2,4 +2,7 @@
 !addons/**
 !addons/**/*
 !README.md
-* export-ignore
+assets/* export-ignore
+scenes/* export-ignore
+singletons/* export-ignore
+themes/* export-ignore
