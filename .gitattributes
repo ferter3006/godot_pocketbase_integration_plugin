@@ -1,3 +1,5 @@
-* export-ignore
 !addons/**
+!addons/**
+!addons/**/*
 !README.md
+* export-ignore
